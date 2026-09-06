@@ -27,11 +27,16 @@
 
     <!-- Hero Section -->
     <section class="pt-32 pb-20 px-4 text-center max-w-4xl mx-auto">
-        <h2 class="text-5xl font-extrabold mb-4" data-en="Hi, I'm an AI Web Developer" data-ar="مرحباً، أنا مطور ويب وذكاء اصطناعي">Hi, I'm an AI Web Developer</h2>
+        <!-- Profile Picture Container -->
+        <div class="mb-8 flex justify-center">
+            <img src="profile.jpg" alt="Profile Picture" class="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover shadow-xl border-4 border-white ring-4 ring-blue-500/20 hover:scale-105 transition duration-300">
+        </div>
+
+        <h2 class="text-4xl md:text-5xl font-extrabold mb-4" data-en="Hi, I'm an AI Web Developer" data-ar="مرحباً، أنا مطور ويب وذكاء اصطناعي">Hi, I'm an AI Web Developer</h2>
         <p class="text-xl text-gray-600 mb-8 leading-relaxed" data-en="I build intelligent, scalable web applications by integrating modern web technologies with advanced AI models to solve complex business problems." data-ar="أقوم ببناء تطبيقات ويب ذكية وقابلة للتوسع من خلال دمج تقنيات الويب الحديثة مع نماذج الذكاء الاصطناعي المتقدمة لحل المشكلات المعقدة.">
             I build intelligent, scalable web applications by integrating modern web technologies with advanced AI models to solve complex business problems.
         </p>
-        <a href="#contact" class="px-8 py-3 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 transition text-lg" data-en="Let's Talk" data-ar="تواصل معي">Let's Talk</a>
+        <a href="#contact" class="px-8 py-3 bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 transition text-lg inline-block" data-en="Let's Talk" data-ar="تواصل معي">Let's Talk</a>
     </section>
 
     <!-- Skills Section -->
@@ -80,7 +85,6 @@
     <section id="contact" class="py-16 bg-white px-4">
         <div class="max-w-3xl mx-auto">
             <h3 class="text-3xl font-bold text-center mb-8" data-en="Get In Touch" data-ar="تواصل معي">Get In Touch</h3>
-            <!-- ملاحظة: ليعمل الفورم حقيقياً، يمكنك استخدام خدمة مجانية مثل Formspree بوضع رابطهم في action="..." -->
             <form action="https://formspree.io/f/your_form_id_here" method="POST" class="bg-gray-50 p-8 rounded-xl shadow-sm border border-gray-100">
                 <div class="mb-6">
                     <label class="block text-gray-700 font-semibold mb-2" data-en="Name" data-ar="الاسم">Name</label>
@@ -110,15 +114,12 @@
         function toggleLanguage() {
             currentLang = currentLang === 'en' ? 'ar' : 'en';
             
-            // تحديث اتجاه الصفحة
             const htmlRoot = document.getElementById('html-root');
             htmlRoot.setAttribute('lang', currentLang);
             htmlRoot.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
             
-            // تحديث زر تغيير اللغة
             document.getElementById('lang-toggle').innerText = currentLang === 'ar' ? 'English' : 'عربي';
 
-            // تحديث النصوص بناءً على خصائص data-ar و data-en
             const elements = document.querySelectorAll('[data-en][data-ar]');
             elements.forEach(el => {
                 el.innerText = el.getAttribute(`data-${currentLang}`);
